@@ -1,5 +1,5 @@
 {
-  "name": "hungramic",
+  "name": "hungarian-grammar",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -31,8 +31,8 @@
   },
   "jest": {
     "transform": { "^.+\\.ts$": "ts-jest" },
-    "testMatch": ["**/*.spec.ts"],
-    "moduleFileExtensions": ["ts"]
+    "testMatch": ["**/__tests__/*.spec.ts"],
+    "moduleFileExtensions": ["ts", "js"]
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",

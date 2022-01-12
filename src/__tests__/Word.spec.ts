@@ -1,5 +1,5 @@
-import Word from '../src/Word'
-import Letter from '../src/Letter'
+import Word from '../Word'
+import Letter from '../Letter'
 
 describe('Word class', () => {
   it('get word vowels', () => {

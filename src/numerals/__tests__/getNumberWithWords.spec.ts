@@ -1,0 +1,46 @@
+import { getNumberWithWords } from '../getNumberWithWords'
+
+describe('number with words', () => {
+  it('should write the simple cases properly', () => {
+    expect(getNumberWithWords(0)).toBe('nulla')
+    expect(getNumberWithWords(1)).toBe('egy')
+    expect(getNumberWithWords(2)).toBe('kettő')
+    expect(getNumberWithWords(3)).toBe('három')
+    expect(getNumberWithWords(10)).toBe('tíz')
+    expect(getNumberWithWords(15)).toBe('tizenöt')
+    expect(getNumberWithWords(20)).toBe('húsz')
+    expect(getNumberWithWords(26)).toBe('huszonhat')
+    expect(getNumberWithWords(39)).toBe('harminckilenc')
+    expect(getNumberWithWords(67)).toBe('hatvanhét')
+    expect(getNumberWithWords(100)).toBe('száz')
+    expect(getNumberWithWords(107)).toBe('százhét')
+    expect(getNumberWithWords(110)).toBe('száztíz')
+    expect(getNumberWithWords(118)).toBe('száztizennyolc')
+    expect(getNumberWithWords(120)).toBe('százhúsz')
+    expect(getNumberWithWords(127)).toBe('százhuszonhét')
+    expect(getNumberWithWords(200)).toBe('kétszáz')
+    expect(getNumberWithWords(220)).toBe('kétszázhúsz')
+    expect(getNumberWithWords(236)).toBe('kétszázharminchat')
+    expect(getNumberWithWords(867)).toBe('nyolcszázhatvanhét')
+    expect(getNumberWithWords(1000)).toBe('ezer')
+    expect(getNumberWithWords(2368)).toBe('kétezer-háromszázhatvannyolc')
+    expect(getNumberWithWords(10000)).toBe('tízezer')
+    expect(getNumberWithWords(12000)).toBe('tizenkétezer')
+    expect(getNumberWithWords(16384)).toBe('tizenhatezer-háromszáznyolcvannégy')
+    expect(getNumberWithWords(127000)).toBe('százhuszonhétezer')
+    expect(getNumberWithWords(100000)).toBe('százezer')
+    expect(getNumberWithWords(1000000)).toBe('egymillió')
+    expect(getNumberWithWords(10000000)).toBe('tízmillió')
+    expect(getNumberWithWords(100000000)).toBe('százmillió')
+    expect(getNumberWithWords(1000000000)).toBe('egymilliárd')
+    expect(getNumberWithWords(10000000000)).toBe('tízmilliárd')
+    expect(getNumberWithWords(9007199254740991)).toBe(
+      'kilencbilliárd-hétbillió-százkilencvenkilencmilliárd-kétszázötvennégymillió-hétszáznegyvenezer-kilencszázkilencvenegy',
+    )
+    expect(getNumberWithWords(12.34)).toBe('tizenkettő egész harmincnégy század')
+    expect(getNumberWithWords(-20)).toBe('mínusz húsz')
+    expect(getNumberWithWords(-6.672167)).toBe(
+      'mínusz hat egész hatszázhetvenkétezer-százhatvanhét milliomod',
+    )
+  })
+})
