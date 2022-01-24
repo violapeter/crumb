@@ -1,5 +1,6 @@
 {
-  "name": "hungarian-grammar",
+  "name": "hungrammar",
+  "private": true,
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -22,6 +23,11 @@
     "ts-jest": "^27.1.2",
     "typescript": "^4.5.4"
   },
+  "workspaces": [
+    "packages/*",
+    "docs",
+    "cli"
+  ],
   "prettier": {
     "semi": false,
     "trailingComma": "all",
@@ -41,7 +47,6 @@
       "sourceType": "module"
     },
     "extends": ["plugin:prettier/recommended"],
-
     "env": {
       "node": true,
       "jest": true

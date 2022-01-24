@@ -1,4 +1,5 @@
-import Letter, { Case } from '../Letter'
+import { Letter } from '..'
+import { Case } from '../src/Letter'
 
 describe('Letter class', () => {
   it('should throw TypeError, when string is longer than three character', () => {

@@ -1,4 +1,4 @@
-import { getSyllables } from '../getSyllables'
+import { getSyllables } from '../src/getSyllables'
 
 describe('getSyllables', () => {
   describe('when the word contains only one vowel', () => {

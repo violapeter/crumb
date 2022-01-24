@@ -1,4 +1,4 @@
-import { upToThousand } from '../upToThousand'
+import { upToThousand } from '../src/upToThousand'
 
 describe('upToThousand', () => {
   it('one digit numbers', () => {

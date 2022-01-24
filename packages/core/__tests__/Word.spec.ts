@@ -1,5 +1,5 @@
-import Word from '../Word'
-import Letter from '../Letter'
+import { Word, Letter } from '..'
+import { VowelHarmony } from '../src/enums'
 
 describe('Word class', () => {
   it('get word vowels', () => {
@@ -11,7 +11,7 @@ describe('Word class', () => {
   describe('word.vowelHarmony', () => {
     it('front', () => {
       const word = new Word('tok')
-      expect(word.vowelHarmony).toBe('Back')
+      expect(word.vowelHarmony).toBe(VowelHarmony.Back)
     })
   })
 
@@ -41,6 +41,16 @@ describe('Word class', () => {
         new Letter('ó'),
         new Letter('k'),
         new Letter('a'),
+      ])
+    })
+
+    it('should work when there are multiple two digit letters', () => {
+      const word = new Word('apacs')
+      expect(word.letters).toStrictEqual([
+        new Letter('a'),
+        new Letter('p'),
+        new Letter('a'),
+        new Letter('cs'),
       ])
     })
   })

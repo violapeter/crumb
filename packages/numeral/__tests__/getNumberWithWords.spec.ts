@@ -1,4 +1,4 @@
-import { getNumberWithWords } from '../getNumberWithWords'
+import { getNumberWithWords } from '../src/getNumberWithWords'
 
 describe('number with words', () => {
   it('should write the simple cases properly', () => {

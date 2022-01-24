@@ -3,7 +3,7 @@ export enum Case {
   Lower,
 }
 
-export default class Letter {
+export class Letter {
   public readonly value: string
   public readonly case: Case
 
@@ -84,9 +84,7 @@ export default class Letter {
     const hunLetterRegex = /^([a-záéíóöőúüű]|[cz]s|[glnt]y|[sd]z|dzs)$/i
 
     if (!hunLetterRegex.test(letter)) {
-      throw new TypeError(
-        `Cannot use "${letter}" as Letter. Not a valid lowercase hungarian letter.`,
-      )
+      throw new TypeError(`Cannot use "${letter}" as Letter. Not a valid hungarian letter.`)
     }
   }
 }

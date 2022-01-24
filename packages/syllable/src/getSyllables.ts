@@ -1,6 +1,8 @@
-import Word from '../Word'
+import { Word } from '@hungrammar/core'
 
-export const getSyllables = (string: string): string[] => {
+export type StopWord = string | RegExp
+
+export const getSyllables = (string: string, stopWords?: StopWord | StopWord[]): string[] => {
   const word = new Word(string)
 
   if (word.vowels.length === 1 || word.vowels.length === 0) {

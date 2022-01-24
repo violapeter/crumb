@@ -1,6 +1,7 @@
-import Letter from './Letter'
+import { VowelHarmony, VowelHeight } from './enums'
+import { Letter } from '..'
 
-export default class Word {
+export class Word {
   /** Egy kifejezésben lehetséges szeparátor karakterek */
   static PHRASES_SEPARATOR = /–|-|,\s|\s/gi
 
@@ -64,23 +65,55 @@ export default class Word {
     return this.vowels[this.vowels.length - 1]
   }
 
+  get endsWithConsonantCongestion(): boolean {
+    if (this.letters.length < 2) return false
+    const beforeLastLetter = this.letters[this.letters.length - 2]
+    return this.lastLetter.isConsonant && beforeLastLetter.isConsonant
+  }
+
   /** Visszaadja egy szó magánhangzó-harmóniáját */
   get vowelHarmony(): VowelHarmony {
     const wordVowels = this.vowels
 
     if (wordVowels.length === 0) {
-      return 'Front'
+      return VowelHarmony.Front
     }
 
     if (wordVowels.filter((vowel) => vowel.isBackVowel).length === 0) {
-      return 'Front'
+      return VowelHarmony.Front
     }
 
     if (wordVowels.filter((vowel) => vowel.isFrontVowel).length === 0) {
-      return 'Back'
+      return VowelHarmony.Back
     }
 
-    return 'Mixed'
+    return VowelHarmony.Mixed
+  }
+
+  get vowelHeight(): VowelHeight {
+    if (this.lastVowel.isRoundedVowel) {
+      return VowelHeight.HighRounded
+    }
+
+    if (this.vowelHarmony === VowelHarmony.Back) {
+      return VowelHeight.Low
+    }
+
+    if (this.vowelHarmony === VowelHarmony.Front) {
+      return VowelHeight.High
+    }
+
+    if (this.vowelHarmony === VowelHarmony.Mixed) {
+      const lastTwoVowels = this.vowels.slice(-2)
+
+      if (/[eé]/.test(this.lastVowel.value) || lastTwoVowels.every((vowel) => vowel.isFrontVowel)) {
+        return VowelHeight.High
+      }
+
+      return VowelHeight.Low
+    }
+
+    return VowelHeight.Low
   }
 
   replace(regExp: RegExp, newString: string): Word {

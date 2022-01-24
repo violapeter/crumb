@@ -1,0 +1,7 @@
+{
+  "name": "@hungrammar/suffix",
+  "version": "1.0.0",
+  "dependencies": {
+    "@hungrammar/core": "1.0.0"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@hungrammar/cli",
+  "version": "1.0.0",
+  "scripts": {
+    "r": "ts-node cli.js"
+  },
+  "dependencies": {
+    "@hungrammar/suffix": "1.0.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "ts-node": "^10.4.0"
+  }
+}
