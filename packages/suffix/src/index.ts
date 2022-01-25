@@ -7,6 +7,11 @@ const ADJECTIVE_EXCEPTIONS: Exception[] = [
   [/halom$/, (w) => w.replace(/halom$/, 'halmi')],
 ]
 
+const ABLATIVE_EXCEPTIONS: Exception[] = [
+  ['aki', 'akitől'],
+  [/valaki$/, (w) => w.replace(/valaki$/, 'valakitől')],
+]
+
 export const suffix = {
   accusative: createSuffixer(accusative, ACCUSATIVE_EXCEPTIONS),
   ablative: createSuffixer(
@@ -14,6 +19,7 @@ export const suffix = {
       low: 'tól',
       high: 'től',
     }),
+    ABLATIVE_EXCEPTIONS,
   ),
   adessive: createSuffixer(
     createSuffixSelector({

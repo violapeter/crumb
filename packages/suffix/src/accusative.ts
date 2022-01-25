@@ -1,6 +1,7 @@
 import { VowelHarmony, VowelHeight, Word } from '@hungrammar/core'
 import { Exception } from './exceptions'
 import { createSuffixSelector } from './create'
+import { assimilate } from './assimilation'
 
 const ACCUSATIVE_CONJUGATION = 't'
 

@@ -8,5 +8,11 @@ describe('ablative case', () => {
       expect(suffix.ablative('kéz')).toBe('kéztől')
       expect(suffix.ablative('kenyérkereset')).toBe('kenyérkeresettől')
     })
+    it('tier1', () => {
+      expect(suffix.ablative('aki')).toBe('akitől')
+      expect(suffix.ablative('valaki')).toBe('valakitől')
+      expect(suffix.ablative('alaki')).toBe('alakitól')
+      expect(suffix.ablative('laki')).toBe('lakitól')
+    })
   })
 })

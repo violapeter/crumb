@@ -2,7 +2,7 @@
   "name": "@hungrammar/cli",
   "version": "1.0.0",
   "scripts": {
-    "r": "ts-node cli.js"
+    "r": "ts-node cli.ts"
   },
   "dependencies": {
     "@hungrammar/suffix": "1.0.0"

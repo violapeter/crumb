@@ -26,40 +26,62 @@ const cases = [
 ]
 
 const Home: NextPage = () => {
-  const [c, setC] = useState('accusative')
-  const [word, setWord] = useState('')
-  const [result, setResult] = useState('')
-  const [vowelHarmony, setVowelHarmony] = useState<VowelHarmony>(null)
+  const [suffixType, setSuffixType] = useState('accusative')
+  const [input, setInput] = useState('')
+  const [result, setResult] = useState<string[]>([])
+  const [validWords, setValidWords] = useState<string[]>([])
 
   useEffect(() => {
-    try {
-      const w = new Word(word)
-      setResult(suffix[c](word))
-      setVowelHarmony(w.vowelHarmony)
-    } catch (e) {
-      console.log('no word')
-    }
-  }, [c, word])
+    const rows = input.split('\n')
+    const objects = rows.map((row) => {
+      try {
+        return suffix[suffixType](row)
+      } catch (e) {}
+    })
+    setResult(objects)
+  }, [suffixType, input])
+
+  const handleCheckValid = (id) => {
+    const index = validWords.findIndex((curr) => curr === id)
+    setValidWords(index < 0 ? [...validWords, id] : validWords.filter((w, i) => i !== index))
+  }
 
   return (
     <div>
-      <input
-        type={'text'}
+      <textarea
         onChange={(e) => {
-          setWord(e.target.value)
+          setInput(e.target.value)
         }}
       />
       <select
         onChange={(e) => {
-          setC(e.target.value)
+          setSuffixType(e.target.value)
         }}
       >
         {cases.map((c) => (
           <option key={c}>{c}</option>
         ))}
       </select>
-      <div>{result}</div>
-      <div>{vowelHarmony}</div>
+      <div>
+        {result.map((resultRow, index) => (
+          <div key={`${resultRow}-${index}`}>
+            <input
+              id={`${resultRow}-${index}`}
+              type="checkbox"
+              checked={validWords.includes(`${resultRow}-${index}`)}
+              onChange={() => handleCheckValid(`${resultRow}-${index}`)}
+            />
+            <label
+              style={{
+                color: validWords.includes(`${resultRow}-${index}`) ? '#ddd' : 'black',
+              }}
+              htmlFor={`${resultRow}-${index}`}
+            >
+              {resultRow}
+            </label>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
