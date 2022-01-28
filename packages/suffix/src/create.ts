@@ -25,11 +25,29 @@ interface SuffixOptions {
   forceHeight?: VowelHeight
 }
 
+const assimilate = (word: string, suffix: string): string => {
+  if (/[ae]$/.test(word)) {
+    return word.slice(0, -1) + new Word(word).lastLetter.opposite + suffix
+  }
+
+  if (new RegExp(`${suffix.slice(0, 1).repeat(2)}$`).test(word)) {
+    return word.slice(0, -1) + suffix
+  }
+
+  const { lastLetter, endsWithConsonantCongestion } = new Word(word)
+
+  if (lastLetter.isConsonant && /^v/.test(suffix)) {
+    return word + (endsWithConsonantCongestion ? '' : word.slice(-1)) + suffix.slice(1)
+  }
+
+  return word + suffix
+}
+
 export const createSuffixSelector =
   ({ low, high, highRounded, forceHeight }: SuffixOptions) =>
   (word: string): string =>
     ({
-      [VowelHeight.High]: word + high,
-      [VowelHeight.HighRounded]: word + (highRounded ?? high),
-      [VowelHeight.Low]: word + low,
+      [VowelHeight.High]: assimilate(word, high),
+      [VowelHeight.HighRounded]: assimilate(word, highRounded ?? high),
+      [VowelHeight.Low]: assimilate(word, low),
     }[forceHeight || new Word(word).vowelHeight])

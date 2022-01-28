@@ -1,7 +1,6 @@
 import { VowelHarmony, VowelHeight, Word } from '@hungrammar/core'
 import { Exception } from './exceptions'
 import { createSuffixSelector } from './create'
-import { assimilate } from './assimilation'
 
 const ACCUSATIVE_CONJUGATION = 't'
 
@@ -10,6 +9,7 @@ export const ACCUSATIVE_EXCEPTIONS = ({ lastVowel, letters }: Word): Exception[]
   ['te', 'téged'],
   ['mi', 'minket'],
   ['ti', 'titeket'],
+  [['tó', 'csónakázótó', 'halastó'], (w) => w.replace(/tó$/, 'tavat')],
   [/farok$/, (w) => w.replace(/farok$/, 'farkat')],
   [/csimpánz$/, (w) => w.replace(/csimpánz$/, 'csimpánzt')],
   [/(parázs|darázs)$/, (w) => w.replace(/rázs$/, 'razsat')],
@@ -34,7 +34,7 @@ export const ACCUSATIVE_EXCEPTIONS = ({ lastVowel, letters }: Word): Exception[]
       ACCUSATIVE_CONJUGATION,
   ],
   [
-    /(kő|tő|cső|nyű|fű|tó|ló|hó|mű)$/,
+    /(kő|tő|cső|nyű|fű|ló|hó|mű)$/,
     (w) =>
       w.slice(0, -1) +
       (lastVowel.value === 'ó' ? 'a' : lastVowel.opposite) +
@@ -82,7 +82,7 @@ export const accusative = (word: string) => {
   const { lastLetter, endsWithConsonantCongestion } = new Word(word)
 
   if (lastLetter.isVowel) {
-    if (/[ae]$/.test(lastLetter.value)) {
+    if (/[ae]$/.test(word)) {
       return word.slice(0, -1) + lastLetter.opposite + ACCUSATIVE_CONJUGATION
     }
 

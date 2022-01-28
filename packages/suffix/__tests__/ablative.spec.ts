@@ -14,5 +14,11 @@ describe('ablative case', () => {
       expect(suffix.ablative('alaki')).toBe('alakitól')
       expect(suffix.ablative('laki')).toBe('lakitól')
     })
+    it('tier2', () => {
+      expect(suffix.ablative('agónia')).toBe('agóniától')
+      expect(suffix.ablative('agrárpolitika')).toBe('agrárpolitikától')
+      expect(suffix.ablative('afféle')).toBe('affélétől')
+      expect(suffix.ablative('ablakfülke')).toBe('ablakfülkétől')
+    })
   })
 })

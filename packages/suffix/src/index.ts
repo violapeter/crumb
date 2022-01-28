@@ -1,26 +1,16 @@
 import { accusative, ACCUSATIVE_EXCEPTIONS } from './accusative'
 import { createSuffixer, createSuffixSelector } from './create'
 import { Exception } from './exceptions'
+import { ablative, ABLATIVE_EXCEPTIONS } from './ablative'
 
 const ADJECTIVE_EXCEPTIONS: Exception[] = [
   ['Eger', 'egri'],
   [/halom$/, (w) => w.replace(/halom$/, 'halmi')],
 ]
 
-const ABLATIVE_EXCEPTIONS: Exception[] = [
-  ['aki', 'akitől'],
-  [/valaki$/, (w) => w.replace(/valaki$/, 'valakitől')],
-]
-
 export const suffix = {
   accusative: createSuffixer(accusative, ACCUSATIVE_EXCEPTIONS),
-  ablative: createSuffixer(
-    createSuffixSelector({
-      low: 'tól',
-      high: 'től',
-    }),
-    ABLATIVE_EXCEPTIONS,
-  ),
+  ablative: createSuffixer(ablative, ABLATIVE_EXCEPTIONS),
   adessive: createSuffixer(
     createSuffixSelector({
       low: 'nál',

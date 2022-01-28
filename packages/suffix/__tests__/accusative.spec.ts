@@ -49,6 +49,8 @@ describe('accusative case', () => {
   it('exceptions tier 4', () => {
     expect(suffix.accusative('víz')).toBe('vizet')
     expect(suffix.accusative('tó')).toBe('tavat')
+    expect(suffix.accusative('halastó')).toBe('halastavat')
+    expect(suffix.accusative('Ottó')).toBe('Ottót')
     expect(suffix.accusative('hó')).toBe('havat')
     expect(suffix.accusative('fű')).toBe('füvet')
     expect(suffix.accusative('kő')).toBe('követ')
