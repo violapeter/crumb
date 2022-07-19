@@ -1,7 +1,7 @@
 {
-  "name": "@hungrammar/syllable",
+  "name": "@crumb/syllable",
   "version": "1.0.0",
   "dependencies": {
-    "@hungrammar/core": "1.0.0"
+    "@crumb/core": "1.0.0"
   }
 }

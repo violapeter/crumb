@@ -1,4 +1,4 @@
-import { Word } from '@hungrammar/core'
+import { Word } from '@crumb/core'
 
 export type StopWord = string | RegExp
 

@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { VowelHarmony, Word } from '@hungrammar/core'
+import { VowelHarmony, Word } from '@crumb/core'
 
 fs.readFile('./fixtures/magyar_szavak_utf8.txt', 'utf-8', (err, data) => {
   if (err) throw err

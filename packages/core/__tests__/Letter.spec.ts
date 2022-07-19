@@ -82,6 +82,17 @@ describe('Letter class', () => {
     })
   })
 
+  describe('Two-digit letters', () => {
+    it('should tell whether a letter is multiple-digit or not', () => {
+      expect(new Letter('cs').isMultipleDigit).toBe(true)
+      expect(new Letter('dzs').isMultipleDigit).toBe(true)
+      expect(new Letter('s').isMultipleDigit).toBe(false)
+      expect(new Letter('y').isMultipleDigit).toBe(false)
+      expect(new Letter('c').isMultipleDigit).toBe(false)
+      expect(new Letter('a').isMultipleDigit).toBe(false)
+    })
+  })
+
   describe('Long consonants', () => {
     it('should handle long consonants properly', () => {
       expect(new Letter('l').longConsonant).toBe('ll')

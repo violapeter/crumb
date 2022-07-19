@@ -3,7 +3,7 @@ import {
   matchesWord,
   mergeExceptionArrays,
   handleExceptions,
-} from '../src/exceptions'
+} from '../src/utils/exceptions'
 
 describe('matchesWord', () => {
   describe('when we only provide a string', () => {

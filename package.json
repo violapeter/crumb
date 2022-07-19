@@ -1,27 +1,28 @@
 {
-  "name": "hungrammar",
+  "name": "crumb",
   "private": true,
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "docs": "yarn workspace @crumb/docs dev"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.8.1",
-    "@typescript-eslint/parser": "^5.8.1",
-    "eslint": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "@typescript-eslint/parser": "^5.16.0",
+    "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-import-resolver-jest": "^3.0.2",
     "eslint-plugin-babel": "^5.3.1",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.4.5",
-    "prettier": "^2.5.1",
-    "ts-jest": "^27.1.2",
-    "typescript": "^4.5.4"
+    "prettier": "^2.6.1",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.6.3"
   },
   "workspaces": [
     "packages/*",
@@ -36,9 +37,16 @@
     "tabWidth": 2
   },
   "jest": {
-    "transform": { "^.+\\.ts$": "ts-jest" },
-    "testMatch": ["**/__tests__/*.spec.ts"],
-    "moduleFileExtensions": ["ts", "js"]
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/*.spec.ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
   },
   "eslintConfig": {
     "parser": "@typescript-eslint/parser",
@@ -46,14 +54,18 @@
       "ecmaVersion": 2020,
       "sourceType": "module"
     },
-    "extends": ["plugin:prettier/recommended"],
+    "extends": [
+      "plugin:prettier/recommended"
+    ],
     "env": {
       "node": true,
       "jest": true
     },
     "overrides": [
       {
-        "files": ["**/*.ts"],
+        "files": [
+          "**/*.ts"
+        ],
         "extends": [
           "plugin:@typescript-eslint/recommended",
           "plugin:@typescript-eslint/eslint-recommended",

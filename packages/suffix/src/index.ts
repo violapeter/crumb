@@ -1,15 +1,17 @@
-import { accusative, ACCUSATIVE_EXCEPTIONS } from './accusative'
-import { createSuffixer, createSuffixSelector } from './create'
-import { Exception } from './exceptions'
-import { ablative, ABLATIVE_EXCEPTIONS } from './ablative'
-
-const ADJECTIVE_EXCEPTIONS: Exception[] = [
-  ['Eger', 'egri'],
-  [/halom$/, (w) => w.replace(/halom$/, 'halmi')],
-]
+import { createSuffixer } from './utils/createSuffixer'
+import { createSuffixSelector } from './utils/createSuffixSelector'
+import { genitive } from './case/genitive'
+import { accusative, ACCUSATIVE_CONJUGATION } from './case/accusative'
+import { ablative, ABLATIVE_EXCEPTIONS } from './case/ablative'
+import { adjective, ADJECTIVE_EXCEPTIONS } from './case/adjective'
+import { plural, PLURAL_CONJUGATION } from './case/plural'
+import { createGeneralExceptions } from './utils/createGeneralExceptions'
+import { comparative, superlative, excessive, GRADE_CONJUGATION } from './gradation/gradation'
+import { finalCasual } from './case/finalCasual'
+import { privative, PRIVATIVE_EXCEPTIONS } from './case/privative'
 
 export const suffix = {
-  accusative: createSuffixer(accusative, ACCUSATIVE_EXCEPTIONS),
+  accusative: createSuffixer(accusative, createGeneralExceptions(ACCUSATIVE_CONJUGATION)),
   ablative: createSuffixer(ablative, ABLATIVE_EXCEPTIONS),
   adessive: createSuffixer(
     createSuffixSelector({
@@ -17,10 +19,7 @@ export const suffix = {
       high: 'nél',
     }),
   ),
-  adjective: createSuffixer(
-    (word) => (word.slice(-1) === 'i' ? word : `${word}i`),
-    ADJECTIVE_EXCEPTIONS,
-  ),
+  adjective: createSuffixer(adjective, ADJECTIVE_EXCEPTIONS),
   allative: createSuffixer(
     createSuffixSelector({
       low: 'hoz',
@@ -28,7 +27,7 @@ export const suffix = {
       highRounded: 'höz',
     }),
   ),
-  finalCasual: createSuffixer((word) => `${word}ért`),
+  finalCasual: createSuffixer(finalCasual),
   dative: createSuffixer(
     createSuffixSelector({
       low: 'nak',
@@ -99,4 +98,60 @@ export const suffix = {
       high: 'vé',
     }),
   ),
+  privative: createSuffixer(privative, PRIVATIVE_EXCEPTIONS),
+  plural: createSuffixer(plural, createGeneralExceptions(PLURAL_CONJUGATION)),
+  genitive,
+  temporal: createSuffixer((word) => `${word}kor`),
+  sociative: createSuffixer(
+    createSuffixSelector({
+      low: 'stul',
+      high: 'stül',
+    }),
+    createGeneralExceptions({
+      low: 'stul',
+      high: 'stül',
+    }),
+  ),
+  distributiveTemporal: createSuffixer(
+    createSuffixSelector({
+      low: 'onta',
+      high: 'ente',
+    }),
+    createGeneralExceptions({
+      low: 'nta',
+      high: 'nte',
+    }),
+  ),
+  distributive: createSuffixer(
+    createSuffixSelector({
+      low: 'onként',
+      high: 'enként',
+    }),
+  ),
+  formal: createSuffixer((word) => `${word}képpen`),
+  modalEssive: createSuffixer(
+    createSuffixSelector({
+      low: 'ul',
+      high: 'ül',
+    }),
+  ),
+  multiplicative: createSuffixer(
+    createSuffixSelector({
+      low: 'szor',
+      high: 'szer',
+      highRounded: 'ször',
+    }),
+  ),
+  frequentative: createSuffixer(
+    createSuffixSelector({
+      low: 'gat',
+      high: 'get',
+    }),
+  ),
+}
+
+export const grade = {
+  comparative: createSuffixer(comparative, createGeneralExceptions(GRADE_CONJUGATION)),
+  superlative: createSuffixer(superlative, createGeneralExceptions(GRADE_CONJUGATION)),
+  excessive: createSuffixer(excessive, createGeneralExceptions(GRADE_CONJUGATION)),
 }

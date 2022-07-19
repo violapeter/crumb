@@ -1,11 +1,13 @@
 {
-  "name": "@hungrammar/cli",
+  "name": "@crumb/cli",
   "version": "1.0.0",
   "scripts": {
-    "r": "ts-node cli.ts"
+    "r": "ts-node cli.ts",
+    "dev": "ts-node cli2.ts"
   },
   "dependencies": {
-    "@hungrammar/suffix": "1.0.0"
+    "@crumb/suffix": "1.0.0",
+    "conllup": "^1.1.7"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.2",

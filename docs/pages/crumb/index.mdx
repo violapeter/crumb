@@ -1,0 +1,25 @@
+import { Demo } from '../../components/Demo'
+
+# Crumb
+
+A CrumbJS egy magyar morfológiai generátor. Képes dinamikusan előállítani különböző magyar szavakat toldalékolással,
+de számos egyéb alapeszközt bitzosít természetes mondatok generálásához.
+
+## Próbáld ki!
+
+<Demo />
+
+## Telepítés
+```
+npm install @crumb/suffix
+
+yarn add @crumb/suffix
+```
+
+## Használat
+
+```js
+import { suffix } from '@crumb/suffix'
+
+suffix.dative('kutya') // "kutyának"
+```

@@ -45,6 +45,10 @@ export class Letter {
     return Letter.diacriticsOpposite(this)
   }
 
+  get isMultipleDigit(): boolean {
+    return /^([cz]s|[glnt]y|[sd]z|dzs)$/i.test(this.value)
+  }
+
   get longConsonant(): string {
     if (!this.isConsonant) {
       throw new TypeError('You can call "Letter.longConsonant" only on consonants')

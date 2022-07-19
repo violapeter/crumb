@@ -1,6 +1,6 @@
-import { createSuffixSelector } from './create'
-import { VowelHeight } from '@hungrammar/core'
-import { Exception } from './exceptions'
+import { VowelHeight } from '@crumb/core'
+import { createSuffixSelector } from '../utils/createSuffixSelector'
+import { Exception } from '../utils/exceptions'
 
 export const ABLATIVE_EXCEPTIONS: Exception[] = [
   ['aki', 'akitől'],

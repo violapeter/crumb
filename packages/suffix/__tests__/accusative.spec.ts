@@ -55,6 +55,7 @@ describe('accusative case', () => {
     expect(suffix.accusative('fű')).toBe('füvet')
     expect(suffix.accusative('kő')).toBe('követ')
     expect(suffix.accusative('kút')).toBe('kutat')
+    expect(suffix.accusative('nyár')).toBe('nyarat')
   })
   it('exceptions tier 5', () => {
     expect(suffix.accusative('hal')).toBe('halat')

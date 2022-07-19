@@ -1,3 +1,1 @@
-import { suffix } from './src'
-
-export { suffix }
+export { suffix, grade } from './src'
