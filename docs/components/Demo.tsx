@@ -48,7 +48,7 @@ export const Demo = (): JSX.Element => {
 
   const handleChangeSyllables = ({ target }) => {
     if (target.checkValidity()) {
-      setSyllablesResult(getSyllables(target.value))
+      setSyllablesResult(getSyllables(target.value, { formatted: false }))
     }
   }
 

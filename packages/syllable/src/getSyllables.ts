@@ -1,8 +1,9 @@
 import { Word } from '@crumb/core'
+import { getStopWord } from './stopWord'
 
 export type StopWord = string | RegExp
 
-export const getSyllables = (string: string, stopWords?: StopWord | StopWord[]): string[] => {
+const getSyllablesOfPart = (string: string): string[] => {
   const word = new Word(string)
 
   if (word.vowels.length === 1 || word.vowels.length === 0) {
@@ -28,4 +29,39 @@ export const getSyllables = (string: string, stopWords?: StopWord | StopWord[]):
   })
 
   return syllables
+}
+
+export const getSyllablesOfFullWord = (
+  string: string,
+  stopWords?: StopWord | StopWord[],
+): string[] => {
+  if (stopWords) {
+    const stopWordPart = getStopWord(string, stopWords)
+    if (stopWordPart) {
+      const [, otherPart] = string.split(stopWordPart)
+      return getSyllablesOfPart(stopWordPart).concat(getSyllablesOfPart(otherPart))
+    }
+  }
+
+  return getSyllablesOfPart(string)
+}
+
+export function getSyllables(
+  word: string,
+  options?: { stopWords?: StopWord | StopWord[]; formatted?: true; hyphenCharacter?: string },
+): string
+
+export function getSyllables(
+  word: string,
+  options?: { stopWords?: StopWord | StopWord[]; formatted?: false; hyphenCharacter?: string },
+): string[]
+
+export function getSyllables(
+  word: string,
+  options: { stopWords?: StopWord | StopWord[]; formatted?: boolean; hyphenCharacter?: string } = {
+    formatted: false,
+  },
+) {
+  const syllables = getSyllablesOfFullWord(word, options?.stopWords)
+  return options?.formatted ? syllables.join(options.hyphenCharacter || '-') : syllables
 }

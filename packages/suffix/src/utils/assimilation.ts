@@ -13,9 +13,7 @@ import { reverseLastVowel, Word } from '@crumb/core'
  */
 export const assimilate = (word: string, suffix: string): string => {
   const w = new Word(word)
-  const assimilatedSuffix = /[o]$/.test(new Word(suffix).letters[0].value)
-    ? suffix.slice(1)
-    : suffix
+  const assimilatedSuffix = /o$/.test(new Word(suffix).letters[0].value) ? suffix.slice(1) : suffix
 
   if (/[ae]$/.test(word)) {
     return reverseLastVowel(w).value + assimilatedSuffix

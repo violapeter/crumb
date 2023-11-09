@@ -24,6 +24,7 @@ const testData: Array<[string, string, string, SuffixerMethod]> = [
   ['translative', 'kalapács', 'kalapáccsá', suffix.translative],
   ['privative', 'eszmélet', 'eszméletlen', suffix.privative],
   ['plural', 'kalapács', 'kalapácsok', suffix.plural],
+  ['plural', 'völgy', 'völgyek', suffix.plural],
   ['genitive', 'kalapács', 'kalapácsa', suffix.genitive],
   ['temporal', 'óra', 'órakor', suffix.temporal],
   // ['sociative', 'kalapács', 'kalapácsostul', suffix.sociative],

@@ -22,7 +22,7 @@ export const selectSuffix = (word: string, { low, high, highRounded }: SuffixOpt
     [VowelHeight.High]: high,
     [VowelHeight.HighRounded]: highRounded ?? high,
     [VowelHeight.Low]: low,
-  }[new Word(word).vowelHeight])
+  })[new Word(word).vowelHeight]
 
 /**
  * Factory metódus egy toldalékválasztóhoz.
@@ -43,4 +43,4 @@ export const createSuffixSelector =
       [VowelHeight.High]: assimilate(word, high),
       [VowelHeight.HighRounded]: assimilate(word, highRounded ?? high),
       [VowelHeight.Low]: assimilate(word, low),
-    }[forceHeight || new Word(word).vowelHeight])
+    })[forceHeight || new Word(word).vowelHeight]

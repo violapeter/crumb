@@ -1,3 +1,1 @@
-import { getSyllables } from './src/getSyllables'
-
-export { getSyllables }
+export { getSyllables } from './src/getSyllables'

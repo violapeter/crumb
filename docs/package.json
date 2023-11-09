@@ -8,23 +8,24 @@
     "start": "next start"
   },
   "dependencies": {
-    "@crumb/core": "1.0.0",
-    "@crumb/suffix": "1.0.0",
-    "@crumb/numeral": "1.0.0",
-    "@crumb/syllable": "1.0.0",
-    "next": "12.0.4",
-    "nextra": "^1.1.0",
-    "nextra-theme-docs": "^1.2.6",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "@crumb/core": "workspace:*",
+    "@crumb/numeral": "workspace:*",
+    "@crumb/suffix": "workspace:*",
+    "@crumb/syllable": "workspace:*",
+    "next": "13.5.4",
+    "nextra": "^2.13.1",
+    "nextra-theme-docs": "^2.13.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/node": "16.11.9",
-    "@types/react": "17.0.35",
-    "@types/webpack-env": "^1.16.3",
-    "eslint": "7",
-    "eslint-config-next": "12.0.4",
-    "next-transpile-modules": "^9.0.0",
-    "typescript": "4.5.2"
+    "@types/jest": "^29.5.5",
+    "@types/node": "20.8.2",
+    "@types/react": "18.2.24",
+    "@types/webpack-env": "^1.18.2",
+    "eslint": "8.50.0",
+    "eslint-config-next": "13.5.4",
+    "next-transpile-modules": "^10.0.1",
+    "typescript": "5.2.2"
   }
 }

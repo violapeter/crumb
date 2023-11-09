@@ -1,3 +1,2 @@
-import { getNumberWithWords } from './src/getNumberWithWords'
-
-export { getNumberWithWords }
+export { getNumberWithWords
+} from './src/getNumberWithWords'

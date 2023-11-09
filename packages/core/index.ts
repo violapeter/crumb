@@ -1,7 +1,5 @@
-import { Word } from './src/Word'
-import { Letter } from './src/Letter'
-import { VowelHarmony, VowelHeight } from './src/enums'
-import { reverseLastVowel } from './src/reverseLastVowel'
-import { getNominative } from './src/getNominative'
-
-export { Word, Letter, VowelHarmony, VowelHeight, reverseLastVowel, getNominative }
+export { Word } from './src/Word'
+export { Letter } from './src/Letter'
+export { VowelHarmony, VowelHeight } from './src/enums'
+export { reverseLastVowel } from './src/reverseLastVowel'
+export { getNominative } from './src/getNominative'

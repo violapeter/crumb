@@ -41,7 +41,10 @@ const config = {
     <>
       <title>Crumb</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta name="description" content="Crumb - Hungarian Morphology Generator" />
+      <meta
+        name="description"
+        content="Crumb - Hungarian Morphology Generator"
+      />
       <meta name="og:title" content="Crumb - Hungarian Morphology Generator" />
       <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png" />
     </>

@@ -59,7 +59,7 @@ const getIntegerPart = (integer: number): string =>
  */
 const getPositiveNumberWithWords = (number: number): string => {
   if (number > Number.MAX_SAFE_INTEGER || number < Number.MIN_SAFE_INTEGER) {
-    throw new Error('You must provide a number that JavaScript can handle.')
+    throw new RangeError('You must provide a number that JavaScript can handle.')
   }
 
   const [integer, decimals] = number.toString().split('.')
