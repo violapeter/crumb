@@ -1,7 +1,15 @@
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+.pnp.*
+
+dist
 .DS_Store
-node_modules
 /public
 /lib
 .idea
-.vscode
 yarn-error.log

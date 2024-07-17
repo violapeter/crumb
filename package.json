@@ -6,7 +6,6 @@
   "license": "MIT",
   "scripts": {
     "test": "yarn workspace test-runner initialize",
-    "lint": "yarn workspace linter lint",
     "docs": "yarn workspace @crumb/docs dev"
   },
   "workspaces": [
@@ -15,8 +14,5 @@
     "docs",
     "cli"
   ],
-  "packageManager": "yarn@4.0.0-rc.52",
-  "volta": {
-    "node": "20.6.1"
-  }
+  "packageManager": "pnpm@8.10.5+sha1.4370a069f21873a0ad83c785b8048ed8caf6e6e9"
 }

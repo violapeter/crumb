@@ -4,17 +4,22 @@
     "initialize": "jest"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.5",
+    "@types/jest": "^29.5.12",
     "jest": "^29.7.0",
-    "ts-jest": "^29.1.1",
-    "typescript": "^5.2.2"
+    "ts-jest": "^29.2.2",
+    "typescript": "^5.5.3"
   },
   "jest": {
     "roots": [
       "<rootDir>/../../"
     ],
     "transform": {
-      "^.+\\.ts$": "ts-jest"
+      "^.+\\.ts$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.json"
+        }
+      ]
     },
     "testMatch": [
       "**/__tests__/*.spec.ts"

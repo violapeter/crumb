@@ -12,20 +12,19 @@
     "@crumb/numeral": "workspace:*",
     "@crumb/suffix": "workspace:*",
     "@crumb/syllable": "workspace:*",
-    "next": "13.5.4",
-    "nextra": "^2.13.1",
-    "nextra-theme-docs": "^2.13.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "next": "14.2.5",
+    "nextra": "^2.13.4",
+    "nextra-theme-docs": "^2.13.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.5",
-    "@types/node": "20.8.2",
-    "@types/react": "18.2.24",
-    "@types/webpack-env": "^1.18.2",
-    "eslint": "8.50.0",
-    "eslint-config-next": "13.5.4",
+    "@types/node": "20.14.11",
+    "@types/react": "18.3.3",
+    "@types/webpack-env": "^1.18.5",
     "next-transpile-modules": "^10.0.1",
-    "typescript": "5.2.2"
-  }
+    "prettier-config": "workspace:^",
+    "typescript": "5.5.3"
+  },
+  "prettier": "prettier-config"
 }

@@ -2,6 +2,7 @@
   "name": "@crumb/core",
   "version": "1.0.0",
   "devDependencies": {
-    "@types/jest": "^29.5.5"
-  }
+    "prettier-config": "workspace:^"
+  },
+  "prettier": "prettier-config"
 }
