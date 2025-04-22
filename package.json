@@ -5,14 +5,56 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "yarn workspace test-runner initialize",
-    "docs": "yarn workspace @crumb/docs dev"
+    "test": "jest",
+    "build": "tsc",
+    "build:cli": "tsc --project tsconfig.cli.json",
+    "start": "node dist/src/cli/index.js",
+    "dev": "ts-node ./src/cli/index.ts",
+    "package": "pkg . --out-path=bin"
   },
-  "workspaces": [
-    "packages/*",
-    "dev-tools/*",
-    "docs",
-    "cli"
-  ],
-  "packageManager": "pnpm@8.10.5+sha1.4370a069f21873a0ad83c785b8048ed8caf6e6e9"
+  "bin": {
+    "crumb": "dist/src/cli/index.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "pkg": "^5.8.1",
+    "prettier": "^3.5.3",
+    "ts-jest": "^29.3.2",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "typescript": "^5.8.3"
+  },
+  "pkg": {
+    "targets": [
+      "node18-linux-x64",
+      "node18-macos-x64",
+      "node18-win-x64"
+    ],
+    "outputPath": "bin"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": [
+        "ts-jest",
+        {
+          "tsconfig": "tsconfig.json"
+        }
+      ]
+    },
+    "testMatch": [
+      "**/__tests__/*.spec.ts"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "semi": false
+  }
 }

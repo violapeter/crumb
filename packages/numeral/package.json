@@ -1,8 +1,0 @@
-{
-  "name": "@crumb/numeral",
-  "version": "1.0.0",
-  "devDependencies": {
-    "prettier-config": "workspace:^"
-  },
-  "prettier": "prettier-config"
-}

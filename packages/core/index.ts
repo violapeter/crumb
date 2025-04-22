@@ -1,5 +1,0 @@
-export { Word } from './src/Word'
-export { Letter } from './src/Letter'
-export { VowelHarmony, VowelHeight } from './src/enums'
-export { reverseLastVowel } from './src/reverseLastVowel'
-export { getNominative } from './src/getNominative'
