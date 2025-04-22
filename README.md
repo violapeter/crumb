@@ -119,7 +119,7 @@ suffix.plural('tó');           // "tavak"
 ```bash
 crumb suffix accusative alma // "almát"
 crumb grade comparative szép // "szebb"
-crumb numeral 6524 // hatezer-
+crumb numeral 6524 // hatezer-ötszázhuszonnégy
 ```
 
 ## Licenc
