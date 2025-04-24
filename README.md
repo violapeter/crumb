@@ -5,10 +5,8 @@ számos egyéb alapeszközt biztosít természetes mondatok generálásához.
 
 ## Telepítés
 
-A teljes projekt telepítése:
-
 ```bash
-npm install crumb
+npm install crumbjs
 ```
 
 ## Használat
@@ -18,7 +16,7 @@ npm install crumb
 A toldalékoláshoz használd a `suffix` metódust:
 
 ```javascript
-import {suffix} from 'crumb';
+import {suffix} from 'crumbjs';
 
 suffix.dative('kutya'); // "kutyának"
 ```
@@ -67,7 +65,7 @@ A csomag a következő toldalékokat támogatja:
 A csomag támogatja a melléknevek fokozását is a `grade` objektumon keresztül:
 
 ```javascript
-import {grade} from 'crumb';
+import {grade} from 'crumbjs';
 
 grade.comparative('szép'); // "szebb"
 grade.superlative('szép'); // "legszebb"
@@ -86,7 +84,7 @@ A csomag kezeli a magyar nyelv speciális eseteit és kivételeit, például:
 ##### Példák
 
 ```javascript
-import {suffix, grade} from 'crumb';
+import {suffix, grade} from 'crumbjs';
 
 // Esetragok
 suffix.accusative('alma');     // "almát"
