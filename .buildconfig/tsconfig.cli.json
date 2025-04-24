@@ -6,6 +6,10 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "esModuleInterop": true,
-    "outDir": "dist"
-  }
+    "outDir": "../lib/cli"
+  },
+  "include": [
+    "../src",
+    "../index.ts"
+  ]
 }
