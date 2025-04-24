@@ -67,7 +67,7 @@ export const suffix = {
       high: 'be',
     }),
   ),
-  insessive: createSuffixer(
+  inessive: createSuffixer(
     createSuffixSelector({
       low: 'ban',
       high: 'ben',

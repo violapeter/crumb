@@ -35,7 +35,7 @@ A csomag a következő toldalékokat támogatja:
 - `delative`: leható eset (-ról, -ről) - pl. `suffix.delative('tető')` → "tetőről"
 - `elative`: kiható eset (-ból, -ből) - pl. `suffix.elative('doboz')` → "dobozból"
 - `illative`: beható eset (-ba, -be) - pl. `suffix.illative('ház')` → "házba"
-- `insessive`: bentlakó eset (-ban, -ben) - pl. `suffix.insessive('kert')` → "kertben"
+- `inessive`: bentlakó eset (-ban, -ben) - pl. `suffix.inessive('kert')` → "kertben"
 - `sublative`: felható eset (-ra, -re) - pl. `suffix.sublative('asztal')` → "asztalra"
 - `superessive`: felülmaradó eset (-on, -en, -ön) - pl. `suffix.superessive('föld')` → "földön"
 - `terminative`: határvető eset (-ig) - pl. `suffix.terminative('sarok')` → "sarokig"
@@ -113,7 +113,7 @@ import {suffix, grade} from 'crumbjs';
 suffix.accusative('alma');     // "almát"
 suffix.dative('ház');          // "háznak"
 suffix.ablative('iskola');     // "iskolától"
-suffix.insessive('doboz');     // "dobozban"
+suffix.inessive('doboz');     // "dobozban"
 suffix.superessive('szék');    // "széken"
 
 // Többes szám

@@ -15,7 +15,7 @@ const testData: Array<[string, string, string, SuffixerMethod]> = [
   ['essiveFormal', 'kalapács', 'kalapácsként', suffix.essiveFormal],
   ['essiveModal', 'kalapács', 'kalapácsul', suffix.essiveModal],
   ['illative', 'kalapács', 'kalapácsba', suffix.illative],
-  ['insessive', 'kalapács', 'kalapácsban', suffix.insessive],
+  ['inessive', 'kalapács', 'kalapácsban', suffix.inessive],
   [
     'instrumentalComitative',
     'kalapács',
