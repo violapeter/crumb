@@ -72,6 +72,29 @@ grade.superlative('szép'); // "legszebb"
 grade.excessive('szép');   // "legeslegszebb"
 ```
 
+## Számok szöveggé alakítása
+
+```javascript
+import {getNumberWithWords} from 'crumbjs'
+
+getNumberWithWords('1625');       // "ezerhatszázhuszonöt"
+getNumberWithWords('-13.4');      // "mínusz tizenhárom egész négy tized"
+getNumberWithWords('48239845');   // "negyvennyolcmillió-kétszázharminckilencezer-nyolcszáznegyvenöt"
+```
+
+## Szótagolás
+
+```javascript
+import {getSyllables} from 'crumbjs'
+
+getSyllables('kivirágozhat');     // ["ki", "vi", "rá", "goz", "hat"]
+getSyllables('kellemetlenség');   // ["kel", "le", "met", "len", "ség"]
+
+// Nincs szótár, nem ismeri fel a szóhatárokat
+getSyllables('kerítésszaggató', {stopWords: ["kerítés"], formatted: true}); // ke-rí-tés-szag-ga-tó
+getSyllables('pánikroham', {formatted: true, hypenCharacter: '/'}); // pá/nik/ro/ham
+```
+
 ##### Speciális esetek és kivételek
 
 A csomag kezeli a magyar nyelv speciális eseteit és kivételeit, például:
