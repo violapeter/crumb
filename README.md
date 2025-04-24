@@ -5,10 +5,8 @@ számos egyéb alapeszközt biztosít természetes mondatok generálásához.
 
 ## Telepítés
 
-A teljes projekt telepítése:
-
 ```bash
-npm install crumb
+npm install crumbjs
 ```
 
 ## Használat
@@ -18,7 +16,7 @@ npm install crumb
 A toldalékoláshoz használd a `suffix` metódust:
 
 ```javascript
-import {suffix} from 'crumb';
+import {suffix} from 'crumbjs';
 
 suffix.dative('kutya'); // "kutyának"
 ```
@@ -37,7 +35,7 @@ A csomag a következő toldalékokat támogatja:
 - `delative`: leható eset (-ról, -ről) - pl. `suffix.delative('tető')` → "tetőről"
 - `elative`: kiható eset (-ból, -ből) - pl. `suffix.elative('doboz')` → "dobozból"
 - `illative`: beható eset (-ba, -be) - pl. `suffix.illative('ház')` → "házba"
-- `insessive`: bentlakó eset (-ban, -ben) - pl. `suffix.insessive('kert')` → "kertben"
+- `inessive`: bentlakó eset (-ban, -ben) - pl. `suffix.inessive('kert')` → "kertben"
 - `sublative`: felható eset (-ra, -re) - pl. `suffix.sublative('asztal')` → "asztalra"
 - `superessive`: felülmaradó eset (-on, -en, -ön) - pl. `suffix.superessive('föld')` → "földön"
 - `terminative`: határvető eset (-ig) - pl. `suffix.terminative('sarok')` → "sarokig"
@@ -67,11 +65,34 @@ A csomag a következő toldalékokat támogatja:
 A csomag támogatja a melléknevek fokozását is a `grade` objektumon keresztül:
 
 ```javascript
-import {grade} from 'crumb';
+import {grade} from 'crumbjs';
 
 grade.comparative('szép'); // "szebb"
 grade.superlative('szép'); // "legszebb"
 grade.excessive('szép');   // "legeslegszebb"
+```
+
+## Számok szöveggé alakítása
+
+```javascript
+import {getNumberWithWords} from 'crumbjs'
+
+getNumberWithWords('1625');       // "ezerhatszázhuszonöt"
+getNumberWithWords('-13.4');      // "mínusz tizenhárom egész négy tized"
+getNumberWithWords('48239845');   // "negyvennyolcmillió-kétszázharminckilencezer-nyolcszáznegyvenöt"
+```
+
+## Szótagolás
+
+```javascript
+import {getSyllables} from 'crumbjs'
+
+getSyllables('kivirágozhat');     // ["ki", "vi", "rá", "goz", "hat"]
+getSyllables('kellemetlenség');   // ["kel", "le", "met", "len", "ség"]
+
+// Nincs szótár, nem ismeri fel a szóhatárokat
+getSyllables('kerítésszaggató', {stopWords: ["kerítés"], formatted: true}); // ke-rí-tés-szag-ga-tó
+getSyllables('pánikroham', {formatted: true, hypenCharacter: '/'}); // pá/nik/ro/ham
 ```
 
 ##### Speciális esetek és kivételek
@@ -86,13 +107,13 @@ A csomag kezeli a magyar nyelv speciális eseteit és kivételeit, például:
 ##### Példák
 
 ```javascript
-import {suffix, grade} from 'crumb';
+import {suffix, grade} from 'crumbjs';
 
 // Esetragok
 suffix.accusative('alma');     // "almát"
 suffix.dative('ház');          // "háznak"
 suffix.ablative('iskola');     // "iskolától"
-suffix.insessive('doboz');     // "dobozban"
+suffix.inessive('doboz');     // "dobozban"
 suffix.superessive('szék');    // "széken"
 
 // Többes szám

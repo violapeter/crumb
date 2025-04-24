@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cat << EOF > ./lib/cjs/package.json
+{
+    "type": "commonjs"
+}
+EOF
+
+cat << EOF > ./lib/mjs/package.json
+{
+    "type": "module"
+}
+EOF

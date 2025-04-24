@@ -1,18 +1,24 @@
 {
   "name": "crumbjs",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "lib/cjs/index.js",
+  "author": {
+    "name": "Péter Viola",
+    "email": "info@violapeter.hu",
+    "url": "https://violapeter.hu"
+  },
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "build": "tsc",
-    "build:cli": "tsc --project tsconfig.cli.json",
-    "start": "node dist/src/cli/index.js",
+    "build": "tsc -p .buildconfig/tsconfig.mjs.json && tsc -p .buildconfig/tsconfig.cjs.json && .buildconfig/fixup",
+    "build:cli": "tsc --project .buildconfig/tsconfig.cli.json",
+    "start": "node ./lib/cli/src/cli/index.js",
     "dev": "ts-node ./src/cli/index.ts",
-    "package": "pkg . --out-path=bin"
+    "package": "pkg . --out-path=bin",
+    "type-check": "tsc -p .buildconfig/tsconfig.json --noEmit"
   },
   "bin": {
-    "crumb": "dist/src/cli/index.js"
+    "crumb": "lib/cli/src/cli/index.js"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
@@ -26,6 +32,20 @@
     "commander": "^13.1.0",
     "typescript": "^5.8.3"
   },
+  "module": "lib/mjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./lib/mjs/index.js",
+      "require": "./lib/cjs/index.js"
+    }
+  },
+  "types": "./types.d.ts",
+  "files": [
+    "lib",
+    "src",
+    "index.ts",
+    "types.d.ts"
+  ],
   "pkg": {
     "targets": [
       "node18-linux-x64",
@@ -39,7 +59,7 @@
       "^.+\\.ts$": [
         "ts-jest",
         {
-          "tsconfig": "tsconfig.json"
+          "tsconfig": ".buildconfig/tsconfig.json"
         }
       ]
     },
@@ -55,5 +75,6 @@
     "singleQuote": true,
     "trailingComma": "all",
     "semi": false
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }

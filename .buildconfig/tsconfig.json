@@ -4,11 +4,14 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "moduleResolution": "node",
-    "outDir": "lib"
+    "moduleResolution": "node"
   },
   "types": [
     "node",
     "jest"
+  ],
+  "include": [
+    "../src",
+    "../index.ts"
   ]
 }
