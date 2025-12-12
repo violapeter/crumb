@@ -12,6 +12,7 @@ const withConjugation = (
       : selectSuffix(value, conjugation)
 
   return [
+    [/^[A-Za-z]$/, (w) => `${w}-${suffix}`],
     [/mű$/, (w) => w.replace(/mű$/, `műve${suffix}`)],
     [
       ['tó', 'csónakázótó', 'halastó'],

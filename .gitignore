@@ -3,6 +3,7 @@ node_modules
 dist
 bin
 lib
+build
 .DS_Store
 /public
 /lib

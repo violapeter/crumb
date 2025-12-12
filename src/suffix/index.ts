@@ -156,6 +156,7 @@ export const suffix = {
       high: 'get',
     }),
   ),
+  nominative: createSuffixer((word) => word),
 }
 
 export const grade = {

@@ -1,0 +1,8 @@
+{
+  "name": "mine",
+  "version": "1.0.0",
+  "scripts": {
+    "mine": "node index.js"
+  },
+  "private": true
+}
