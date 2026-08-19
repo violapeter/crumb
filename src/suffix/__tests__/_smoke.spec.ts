@@ -1,5 +1,5 @@
-import { suffix } from '../index'
-import { SuffixerMethod } from '../utils/createSuffixer'
+import { suffix } from '../index.js'
+import { SuffixerMethod } from '../utils/createSuffixer.js'
 
 const testData: Array<[string, string, string, SuffixerMethod]> = [
   ['accusative', 'kalapács', 'kalapácsot', suffix.accusative],

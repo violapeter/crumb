@@ -3,7 +3,7 @@ import {
   matchesWord,
   mergeExceptionArrays,
   handleExceptions,
-} from '../utils/exceptions'
+} from '../utils/exceptions.js'
 
 describe('matchesWord', () => {
   describe('when we only provide a string', () => {
@@ -35,13 +35,13 @@ describe('matchesWord', () => {
 describe('mergeExceptionArrays', () => {
   describe('when we provide multiple exception arrays', () => {
     it('should be in reversed order', () => {
-      expect(mergeExceptionArrays([['hey', 'ho']], [['hi', 'ha']], [['foo', 'bar']])).toMatchObject(
-        [
-          ['foo', 'bar'],
-          ['hi', 'ha'],
-          ['hey', 'ho'],
-        ],
-      )
+      expect(
+        mergeExceptionArrays([['hey', 'ho']], [['hi', 'ha']], [['foo', 'bar']]),
+      ).toMatchObject([
+        ['foo', 'bar'],
+        ['hi', 'ha'],
+        ['hey', 'ho'],
+      ])
     })
   })
 })
@@ -100,9 +100,11 @@ describe('handleExceptions', () => {
 
   describe('when there are a function provided as exception', () => {
     it('should call the callback', () => {
-      expect(handleExceptions('kehely', [[/ely$/, (w) => w.replace(/hely$/, 'lyhet')]])).toBe(
-        'kelyhet',
-      )
+      expect(
+        handleExceptions('kehely', [
+          [/ely$/, (w) => w.replace(/hely$/, 'lyhet')],
+        ]),
+      ).toBe('kelyhet')
     })
   })
 })

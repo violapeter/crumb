@@ -1,4 +1,4 @@
-import { Word } from './Word'
+import { Word } from './Word.js'
 
 /**
  * Visszaadja egy szó határozott névelőjét

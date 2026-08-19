@@ -1,4 +1,4 @@
-import { Word } from '../../core/Word'
+import { Word } from '../../core/Word.js'
 
 export type WordLike = string | RegExp | Array<string | RegExp>
 

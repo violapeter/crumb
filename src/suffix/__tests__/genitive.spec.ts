@@ -1,4 +1,4 @@
-import { suffix } from '../index'
+import { suffix } from '../index.js'
 
 describe('genitive case', () => {
   describe('simple cases', () => {

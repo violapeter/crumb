@@ -1,5 +1,5 @@
-import { Word } from '../../core/Word'
-import { reverseLastVowel } from '../../core/reverseLastVowel'
+import { Word } from '../../core/Word.js'
+import { reverseLastVowel } from '../../core/reverseLastVowel.js'
 
 /**
  * Asszimilálja a megfelelő toldalékot.

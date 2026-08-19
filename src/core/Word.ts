@@ -1,5 +1,5 @@
-import { VowelHarmony, VowelHeight } from './enums'
-import { Letter } from './Letter'
+import { VowelHarmony, VowelHeight } from './enums.js'
+import { Letter } from './Letter.js'
 
 export class Word {
   /** Egy kifejezésben lehetséges szeparátor karakterek */

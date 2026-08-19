@@ -1,4 +1,4 @@
-import dict from './dictionary'
+import dict from './dictionary.js'
 
 /**
  * Ezerig visszaad egy számot

@@ -1,6 +1,6 @@
-import { Exception } from '../utils/exceptions'
-import { Word } from '../../core/Word'
-import { VowelHeight } from '../../core/enums'
+import { Exception } from '../utils/exceptions.js'
+import { Word } from '../../core/Word.js'
+import { VowelHeight } from '../../core/enums.js'
 
 export const PRIVATIVE_EXCEPTIONS: Exception[] = [
   ['kár', 'kártalan'],

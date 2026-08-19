@@ -1,6 +1,6 @@
-import { getStopWord } from './stopWord'
-import { Letter } from '../core/Letter'
-import { Word } from '../core/Word'
+import { getStopWord } from './stopWord.js'
+import { Letter } from '../core/Letter.js'
+import { Word } from '../core/Word.js'
 
 export type StopWord = string | RegExp
 

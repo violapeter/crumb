@@ -1,5 +1,5 @@
-import { reverseLastVowel } from '../reverseLastVowel'
-import { Word } from '../Word'
+import { reverseLastVowel } from '../reverseLastVowel.js'
+import { Word } from '../Word.js'
 
 describe('reverse last vowel', () => {
   it('should set the opposite of the last vowel of a world', () => {

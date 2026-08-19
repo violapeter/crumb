@@ -1,10 +1,13 @@
-import { Exception, Exceptions, handleExceptions } from './exceptions'
-import { Word } from '../../core/Word'
+import { Exception, Exceptions, handleExceptions } from './exceptions.js'
+import { Word } from '../../core/Word.js'
 
 export type SuffixerMethod = (word: string, exceptions?: Exception[]) => string
 
 export const createSuffixer =
-  (suffixerMethod: (word: string) => string, internalExceptions?: Exceptions): SuffixerMethod =>
+  (
+    suffixerMethod: (word: string) => string,
+    internalExceptions?: Exceptions,
+  ): SuffixerMethod =>
   (word, exceptions = []) => {
     if (internalExceptions) {
       const internal = Array.isArray(internalExceptions)

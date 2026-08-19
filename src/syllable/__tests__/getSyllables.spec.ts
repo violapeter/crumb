@@ -1,4 +1,4 @@
-import { getSyllables } from '../getSyllables'
+import { getSyllables } from '../getSyllables.js'
 
 describe('getSyllables', () => {
   describe('when the word contains only one vowel', () => {
@@ -26,21 +26,29 @@ describe('getSyllables', () => {
 
   describe('when stopword(s) are provided', () => {
     it('should handle the stopword separately', () => {
-      expect(getSyllables('megint', { stopWords: 'meg' })).toEqual(['meg', 'int'])
+      expect(getSyllables('megint', { stopWords: 'meg' })).toEqual([
+        'meg',
+        'int',
+      ])
     })
   })
 
   describe('when formatted is `true`', () => {
     it('should return a string', () => {
-      expect(getSyllables('zavarodott', { formatted: true })).toEqual('za-va-ro-dott')
+      expect(getSyllables('zavarodott', { formatted: true })).toEqual(
+        'za-va-ro-dott',
+      )
     })
   })
 
   describe('when formatted is `true` and hyphenCharacter provided', () => {
     it('should return a string', () => {
-      expect(getSyllables('megveszekedett', { formatted: true, hyphenCharacter: '—' })).toEqual(
-        'meg—ve—sze—ke—dett',
-      )
+      expect(
+        getSyllables('megveszekedett', {
+          formatted: true,
+          hyphenCharacter: '—',
+        }),
+      ).toEqual('meg—ve—sze—ke—dett')
     })
   })
 })

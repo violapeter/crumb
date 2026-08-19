@@ -50,9 +50,12 @@ jobs:
           draft: false
           prerelease: false
           files: |
-            bin/crumbjs-linux
-            bin/crumbjs-macos
-            bin/crumbjs-win.exe
+            bin/crumbjs-linux-x64
+            bin/crumbjs-linux-arm64
+            bin/crumbjs-macos-x64
+            bin/crumbjs-macos-arm64
+            bin/crumbjs-win-x64.exe
+            bin/crumbjs-win-arm64.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

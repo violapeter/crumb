@@ -1,4 +1,4 @@
-import { getNumberWithWords } from '../getNumberWithWords'
+import { getNumberWithWords } from '../getNumberWithWords.js'
 
 describe('number with words', () => {
   it('should write the simple cases properly', () => {
@@ -37,7 +37,9 @@ describe('number with words', () => {
     expect(getNumberWithWords(9007199254740991)).toBe(
       'kilencbilliárd-hétbillió-százkilencvenkilencmilliárd-kétszázötvennégymillió-hétszáznegyvenezer-kilencszázkilencvenegy',
     )
-    expect(getNumberWithWords(12.34)).toBe('tizenkettő egész harmincnégy század')
+    expect(getNumberWithWords(12.34)).toBe(
+      'tizenkettő egész harmincnégy század',
+    )
     expect(getNumberWithWords(-20)).toBe('mínusz húsz')
     expect(getNumberWithWords(-6.672167)).toBe(
       'mínusz hat egész hatszázhetvenkétezer-százhatvanhét milliomod',
