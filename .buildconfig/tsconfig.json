@@ -4,14 +4,14 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "commonjs",
-    "moduleResolution": "node",
+    "rootDir": "..",
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "types": [
+      "node",
+      "jest"
+    ]
   },
-  "types": [
-    "node",
-    "jest"
-  ],
   "include": [
     "../src",
     "../index.ts"
