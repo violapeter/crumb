@@ -1,11 +1,17 @@
 name: Release
 
+# Releases are tag-driven. Pushing to master deliberately does NOT release --
+# see ci.yml for what runs there. To cut a release, bump the version in
+# package.json, merge it, then:
+#
+#   git tag v2.1.0 && git push origin v2.1.0
 on:
   push:
-    branches:
-      - master
     tags:
       - 'v*'
+
+permissions:
+  contents: write
 
 jobs:
   release:
@@ -19,6 +25,29 @@ jobs:
         with:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
+          cache: npm
+
+      # Fails fast, before the expensive binary build, if the tag and
+      # package.json disagree or if this version is already on npm.
+      - name: Verify version
+        id: version
+        run: |
+          set -euo pipefail
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          PKG_NAME="$(node -p 'require("./package.json").name')"
+          PKG_VERSION="$(node -p 'require("./package.json").version')"
+
+          if [ "$TAG_VERSION" != "$PKG_VERSION" ]; then
+            echo "::error::Tag ${GITHUB_REF_NAME} does not match the package.json version ${PKG_VERSION}"
+            exit 1
+          fi
+
+          if npm view "${PKG_NAME}@${TAG_VERSION}" version >/dev/null 2>&1; then
+            echo "::error::${PKG_NAME}@${TAG_VERSION} is already published to npm"
+            exit 1
+          fi
+
+          echo "VERSION=${TAG_VERSION}" >> "$GITHUB_OUTPUT"
 
       - name: Install dependencies
         run: npm ci
@@ -38,15 +67,14 @@ jobs:
       - name: Create binaries
         run: npm run package
 
-      - name: Get version from tag
-        id: get_version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
-
+      # Deliberately before the npm publish: creating the release is
+      # re-runnable (this action updates an existing release in place),
+      # whereas a published npm version can never be replaced. This order
+      # keeps a failed run safe to retry.
       - name: Create GitHub Release
-        id: create_release
         uses: softprops/action-gh-release@v3
         with:
-          name: Release ${{ steps.get_version.outputs.VERSION }}
+          name: Release ${{ steps.version.outputs.VERSION }}
           draft: false
           prerelease: false
           files: |
