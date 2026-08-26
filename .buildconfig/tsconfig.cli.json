@@ -4,9 +4,13 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "CommonJS",
-    "moduleResolution": "node",
+    "rootDir": "..",
     "esModuleInterop": true,
-    "outDir": "../lib/cli"
+    "outDir": "../lib/cli",
+    "types": [
+      "node",
+      "jest"
+    ]
   },
   "include": [
     "../src",

@@ -1,5 +1,16 @@
 export default {
-  base: ['nulla', 'egy', 'két', 'három', 'négy', 'öt', 'hat', 'hét', 'nyolc', 'kilenc'],
+  base: [
+    'nulla',
+    'egy',
+    'két',
+    'három',
+    'négy',
+    'öt',
+    'hat',
+    'hét',
+    'nyolc',
+    'kilenc',
+  ],
   two: 'kettő',
   ten: 'tíz',
   twenty: 'húsz',

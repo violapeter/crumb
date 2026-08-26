@@ -1,5 +1,5 @@
-import { reverseLastVowel } from '../../core/reverseLastVowel'
-import { Word } from '../../core/Word'
+import { reverseLastVowel } from '../../core/reverseLastVowel.js'
+import { Word } from '../../core/Word.js'
 
 const FINAL_CASUAL_CONJUGATION = 'ért'
 

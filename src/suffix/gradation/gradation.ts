@@ -1,7 +1,7 @@
-import { Exception, handleExceptions } from '../utils/exceptions'
-import { Word } from '../../core/Word'
-import { VowelHeight } from '../../core/enums'
-import { reverseLastVowel } from '../../core/reverseLastVowel'
+import { Exception, handleExceptions } from '../utils/exceptions.js'
+import { Word } from '../../core/Word.js'
+import { VowelHeight } from '../../core/enums.js'
+import { reverseLastVowel } from '../../core/reverseLastVowel.js'
 
 export const GRADE_CONJUGATION = 'bb'
 export const SUPERLATIVE_PREFIX = 'leg'

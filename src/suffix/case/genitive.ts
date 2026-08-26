@@ -1,9 +1,9 @@
-import { Exception } from '../utils/exceptions'
-import { createGeneralExceptions } from '../utils/createGeneralExceptions'
-import { createSuffixer } from '../utils/createSuffixer'
-import { assimilate } from '../utils/assimilation'
-import { Word } from '../../core/Word'
-import { VowelHeight } from '../../core/enums'
+import { Exception } from '../utils/exceptions.js'
+import { createGeneralExceptions } from '../utils/createGeneralExceptions.js'
+import { createSuffixer } from '../utils/createSuffixer.js'
+import { assimilate } from '../utils/assimilation.js'
+import { Word } from '../../core/Word.js'
+import { VowelHeight } from '../../core/enums.js'
 
 export const GENITIVE_EXCEPTIONS: Exception[] = [
   ['affér', 'afférja'],

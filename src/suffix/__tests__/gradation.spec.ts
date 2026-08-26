@@ -1,4 +1,4 @@
-import { grade } from '../index'
+import { grade } from '../index.js'
 
 describe('gradation', () => {
   it('ends with vowel', () => {

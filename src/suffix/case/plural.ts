@@ -1,6 +1,6 @@
-import { createSuffixSelector } from '../utils/createSuffixSelector'
-import { VowelHeight } from '../../core/enums'
-import { Word } from '../../core/Word'
+import { createSuffixSelector } from '../utils/createSuffixSelector.js'
+import { VowelHeight } from '../../core/enums.js'
+import { Word } from '../../core/Word.js'
 
 export const PLURAL_CONJUGATION = 'k'
 

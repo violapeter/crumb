@@ -1,4 +1,4 @@
-import { upToThousand } from '../getNumberWithWords'
+import { upToThousand } from '../getNumberWithWords.js'
 
 describe('upToThousand', () => {
   it('one digit numbers', () => {

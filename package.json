@@ -1,6 +1,6 @@
 {
   "name": "crumbjs",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "lib/cjs/index.js",
   "author": {
     "name": "Péter Viola",
@@ -9,28 +9,33 @@
   },
   "license": "MIT",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest",
+    "test:watch": "jest --watchAll",
     "build": "tsc -p .buildconfig/tsconfig.mjs.json && tsc -p .buildconfig/tsconfig.cjs.json && .buildconfig/fixup",
     "build:cli": "tsc --project .buildconfig/tsconfig.cli.json",
     "start": "node ./lib/cli/src/cli/index.js",
-    "dev": "ts-node ./src/cli/index.ts",
+    "dev": "tsx ./src/cli/index.ts",
     "package": "pkg . --out-path=bin",
-    "type-check": "tsc -p .buildconfig/tsconfig.json --noEmit"
+    "type-check": "tsc -p .buildconfig/tsconfig.json --noEmit",
+    "format": "prettier --write \"src/**/*.ts\" \"index.ts\" \"types.d.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"index.ts\" \"types.d.ts\""
   },
   "bin": {
     "crumb": "lib/cli/src/cli/index.js"
   },
   "devDependencies": {
+    "@swc/core": "^1.16.1",
+    "@swc/jest": "^0.2.39",
     "@types/jest": "^30.0.0",
-    "jest": "^30.2.0",
-    "pkg": "^5.8.1",
-    "prettier": "^3.5.3",
-    "ts-jest": "^29.3.2",
-    "ts-node": "^10.9.2"
+    "@types/node": "^26.2.0",
+    "@yao-pkg/pkg": "^6.22.0",
+    "jest": "^30.4.2",
+    "prettier": "^3.9.6",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
   },
   "dependencies": {
-    "commander": "^14.0.2",
-    "typescript": "^5.8.3"
+    "commander": "^15.0.0"
   },
   "module": "lib/mjs/index.js",
   "exports": {
@@ -48,20 +53,34 @@
   ],
   "pkg": {
     "targets": [
-      "node18-linux-x64",
-      "node18-macos-x64",
-      "node18-win-x64"
+      "node24-linux-x64",
+      "node24-linux-arm64",
+      "node24-macos-x64",
+      "node24-macos-arm64",
+      "node24-win-x64",
+      "node24-win-arm64"
     ],
     "outputPath": "bin"
   },
   "jest": {
     "transform": {
       "^.+\\.ts$": [
-        "ts-jest",
+        "@swc/jest",
         {
-          "tsconfig": ".buildconfig/tsconfig.json"
+          "jsc": {
+            "parser": {
+              "syntax": "typescript"
+            },
+            "target": "esnext"
+          },
+          "module": {
+            "type": "commonjs"
+          }
         }
       ]
+    },
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
     },
     "testMatch": [
       "**/__tests__/*.spec.ts"

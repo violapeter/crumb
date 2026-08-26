@@ -1,6 +1,6 @@
-import { createSuffixSelector } from '../utils/createSuffixSelector'
-import { Exception } from '../utils/exceptions'
-import { VowelHeight } from '../../core/enums'
+import { createSuffixSelector } from '../utils/createSuffixSelector.js'
+import { Exception } from '../utils/exceptions.js'
+import { VowelHeight } from '../../core/enums.js'
 
 export const ABLATIVE_EXCEPTIONS: Exception[] = [
   ['aki', 'akitől'],

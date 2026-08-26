@@ -1,6 +1,6 @@
-import { Exception } from './exceptions'
-import { selectSuffix, SuffixOptions } from './createSuffixSelector'
-import { Word } from '../../core/Word'
+import { Exception } from './exceptions.js'
+import { selectSuffix, SuffixOptions } from './createSuffixSelector.js'
+import { Word } from '../../core/Word.js'
 
 const withConjugation = (
   conjugation: string | SuffixOptions,

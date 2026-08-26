@@ -1,6 +1,6 @@
-import { assimilate } from './assimilation'
-import { VowelHeight } from '../../core/enums'
-import { Word } from '../../core/Word'
+import { assimilate } from './assimilation.js'
+import { VowelHeight } from '../../core/enums.js'
+import { Word } from '../../core/Word.js'
 
 export interface SuffixOptions {
   /** A mély hangrendű toldalék */

@@ -1,12 +1,12 @@
-import { createSuffixSelector } from '../utils/createSuffixSelector'
+import { createSuffixSelector } from '../utils/createSuffixSelector.js'
 import {
   Exception,
   handleExceptions,
   mergeExceptionArrays,
-} from '../utils/exceptions'
-import { createGeneralExceptions } from '../utils/createGeneralExceptions'
-import { VowelHarmony, VowelHeight } from '../../core/enums'
-import { Word } from '../../core/Word'
+} from '../utils/exceptions.js'
+import { createGeneralExceptions } from '../utils/createGeneralExceptions.js'
+import { VowelHarmony, VowelHeight } from '../../core/enums.js'
+import { Word } from '../../core/Word.js'
 
 export const ACCUSATIVE_CONJUGATION = 't'
 

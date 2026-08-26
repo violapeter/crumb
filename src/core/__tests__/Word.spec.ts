@@ -1,6 +1,6 @@
-import { VowelHarmony } from '../enums'
-import { Letter } from '../Letter'
-import { Word } from '../Word'
+import { VowelHarmony } from '../enums.js'
+import { Letter } from '../Letter.js'
+import { Word } from '../Word.js'
 
 describe('Word class', () => {
   it('get word vowels', () => {

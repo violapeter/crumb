@@ -1,6 +1,7 @@
-import { Exception } from '../utils/exceptions'
+import { Exception } from '../utils/exceptions.js'
 
-export const adjective = (word: string) => (word.slice(-1) === 'i' ? word : `${word}i`)
+export const adjective = (word: string) =>
+  word.slice(-1) === 'i' ? word : `${word}i`
 
 export const ADJECTIVE_EXCEPTIONS: Exception[] = [
   ['Eger', 'egri'],

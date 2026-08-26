@@ -1,19 +1,19 @@
-import { createSuffixer } from './utils/createSuffixer'
-import { createSuffixSelector } from './utils/createSuffixSelector'
-import { genitive } from './case/genitive'
-import { accusative, ACCUSATIVE_CONJUGATION } from './case/accusative'
-import { ablative, ABLATIVE_EXCEPTIONS } from './case/ablative'
-import { adjective, ADJECTIVE_EXCEPTIONS } from './case/adjective'
-import { plural, PLURAL_CONJUGATION } from './case/plural'
-import { createGeneralExceptions } from './utils/createGeneralExceptions'
+import { createSuffixer } from './utils/createSuffixer.js'
+import { createSuffixSelector } from './utils/createSuffixSelector.js'
+import { genitive } from './case/genitive.js'
+import { accusative, ACCUSATIVE_CONJUGATION } from './case/accusative.js'
+import { ablative, ABLATIVE_EXCEPTIONS } from './case/ablative.js'
+import { adjective, ADJECTIVE_EXCEPTIONS } from './case/adjective.js'
+import { plural, PLURAL_CONJUGATION } from './case/plural.js'
+import { createGeneralExceptions } from './utils/createGeneralExceptions.js'
 import {
   comparative,
   superlative,
   excessive,
   GRADE_CONJUGATION,
-} from './gradation/gradation'
-import { finalCasual } from './case/finalCasual'
-import { privative, PRIVATIVE_EXCEPTIONS } from './case/privative'
+} from './gradation/gradation.js'
+import { finalCasual } from './case/finalCasual.js'
+import { privative, PRIVATIVE_EXCEPTIONS } from './case/privative.js'
 
 export const suffix = {
   accusative: createSuffixer(
